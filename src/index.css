@@ -1,0 +1,524 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
+    color: #1e293b;
+    overflow-x: hidden;
+  }
+}
+
+/* Liquid Glassmorphism & Gamified Experience Utilities (Theme: Orange, Yellow, White) */
+
+@utility liquid-glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(24px) saturate(190%);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    0 20px 40px -12px rgba(249, 115, 22, 0.12),
+    0 10px 20px -5px rgba(245, 158, 11, 0.08),
+    inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  border-radius: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@utility liquid-glass-hover {
+  &:hover {
+    transform: translateY(-4px) scale(1.01);
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 
+      0 28px 50px -10px rgba(249, 115, 22, 0.22),
+      0 16px 25px -5px rgba(245, 158, 11, 0.15),
+      inset 0 1px 2px rgba(255, 255, 255, 1);
+  }
+}
+
+@utility liquid-nav {
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    0 12px 32px -8px rgba(249, 115, 22, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+}
+
+/* Gamified 3D Motion Pressable Buttons (Orange & Yellow Gradients) */
+@utility btn-gamified-primary {
+  position: relative;
+  background: linear-gradient(135deg, #ff7a18 0%, #ff9e00 50%, #ffd000 100%);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 9999px;
+  box-shadow: 
+    0 5px 0 #c2410c,
+    0 12px 22px -3px rgba(249, 115, 22, 0.45);
+  transition: all 0.15s ease-out;
+  cursor: pointer;
+  user-select: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 7px 0 #c2410c,
+      0 16px 26px -3px rgba(249, 115, 22, 0.55);
+    filter: brightness(1.05);
+  }
+
+  &:active {
+    transform: translateY(4px);
+    box-shadow: 
+      0 1px 0 #c2410c,
+      0 6px 12px -2px rgba(249, 115, 22, 0.35);
+  }
+}
+
+@utility btn-gamified-secondary {
+  position: relative;
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 60%, #fef08a 100%);
+  color: #78350f;
+  font-weight: 700;
+  border-radius: 9999px;
+  box-shadow: 
+    0 5px 0 #b45309,
+    0 12px 20px -3px rgba(245, 158, 11, 0.4);
+  transition: all 0.15s ease-out;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 7px 0 #b45309,
+      0 16px 24px -3px rgba(245, 158, 11, 0.5);
+    filter: brightness(1.05);
+  }
+
+  &:active {
+    transform: translateY(4px);
+    box-shadow: 
+      0 1px 0 #b45309,
+      0 6px 12px -2px rgba(245, 158, 11, 0.3);
+  }
+}
+
+@utility btn-gamified-accent {
+  position: relative;
+  background: linear-gradient(135deg, #ea580c 0%, #f97316 60%, #fb923c 100%);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 9999px;
+  box-shadow: 
+    0 5px 0 #9a3412,
+    0 12px 20px -3px rgba(234, 88, 12, 0.45);
+  transition: all 0.15s ease-out;
+  cursor: pointer;
+  user-select: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 7px 0 #9a3412,
+      0 16px 24px -3px rgba(234, 88, 12, 0.55);
+  }
+
+  &:active {
+    transform: translateY(4px);
+    box-shadow: 
+      0 1px 0 #9a3412,
+      0 6px 12px -2px rgba(234, 88, 12, 0.35);
+  }
+}
+
+@utility btn-gamified-soft {
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  color: #c2410c;
+  font-weight: 700;
+  border: 2px solid #fed7aa;
+  border-radius: 9999px;
+  box-shadow: 
+    0 5px 0 #fdba74,
+    0 8px 16px -2px rgba(249, 115, 22, 0.18);
+  transition: all 0.15s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    background: #ffffff;
+    border-color: #fb923c;
+    transform: translateY(-2px);
+    box-shadow: 
+      0 7px 0 #f97316,
+      0 12px 20px -2px rgba(249, 115, 22, 0.25);
+  }
+
+  &:active {
+    transform: translateY(4px);
+    box-shadow: 
+      0 1px 0 #fdba74,
+      0 4px 8px -2px rgba(249, 115, 22, 0.1);
+  }
+}
+
+/* Backward compatibility aliases */
+@utility pixar-card {
+  @apply liquid-glass;
+}
+@utility pixar-card-hover {
+  @apply liquid-glass-hover;
+}
+@utility btn-3d-primary {
+  @apply btn-gamified-primary;
+}
+@utility btn-3d-secondary {
+  @apply btn-gamified-secondary;
+}
+@utility btn-3d-accent {
+  @apply btn-gamified-accent;
+}
+@utility btn-3d-soft {
+  @apply btn-gamified-soft;
+}
+
+/* Warm Liquid Mesh Background (Orange, Yellow, White) */
+@utility liquid-bg-mesh {
+  background-color: #fffaf5;
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(254, 215, 170, 0.65) 0px, transparent 55%),
+    radial-gradient(at 85% 15%, rgba(254, 240, 138, 0.65) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(255, 237, 213, 0.5) 0px, transparent 60%),
+    radial-gradient(at 15% 85%, rgba(253, 230, 138, 0.6) 0px, transparent 55%),
+    radial-gradient(at 85% 85%, rgba(254, 215, 170, 0.6) 0px, transparent 55%);
+}
+
+@utility pixar-bg-mesh {
+  background-color: #fffaf5;
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(254, 215, 170, 0.65) 0px, transparent 55%),
+    radial-gradient(at 85% 15%, rgba(254, 240, 138, 0.65) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(255, 237, 213, 0.5) 0px, transparent 60%),
+    radial-gradient(at 15% 85%, rgba(253, 230, 138, 0.6) 0px, transparent 55%),
+    radial-gradient(at 85% 85%, rgba(254, 215, 170, 0.6) 0px, transparent 55%);
+}
+
+/* Floating Animations */
+@keyframes liquidFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes liquidGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.06);
+  }
+}
+
+.animate-liquid-float {
+  animation: liquidFloat 5s ease-in-out infinite;
+}
+
+.animate-liquid-glow {
+  animation: liquidGlow 4s ease-in-out infinite;
+}
+
+/* TH Sarabun IT๙ / TH Sarabun PSK / New Typography for Official Thai Certificates */
+@font-face {
+  font-family: 'THsarabunit๙';
+  src: local('THSarabunIT9'), local('TH Sarabun IT9'), local('THSarabunIT๙'), local('TH Sarabun IT๙'), local('TH Sarabun New'), local('TH Sarabun PSK'), local('Sarabun'), url('https://raw.githubusercontent.com/lazywasabi/thai-web-fonts/main/fonts/Sarabun/Sarabun-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'THsarabunit๙';
+  src: local('THSarabunIT9-Bold'), local('TH Sarabun IT9 Bold'), local('THSarabunIT๙ Bold'), local('TH Sarabun New Bold'), local('TH Sarabun PSK Bold'), local('Sarabun Bold'), local('Sarabun-Bold'), url('https://raw.githubusercontent.com/lazywasabi/thai-web-fonts/main/fonts/Sarabun/Sarabun-Bold.woff2') format('woff2');
+  font-weight: 600 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'THsarabunit๙';
+  src: local('THSarabunIT9-Bold'), local('TH Sarabun IT9 Bold'), local('THSarabunIT๙ Bold'), local('TH Sarabun New Bold'), local('TH Sarabun PSK Bold'), local('Sarabun ExtraBold'), local('Sarabun-ExtraBold'), url('https://raw.githubusercontent.com/lazywasabi/thai-web-fonts/main/fonts/Sarabun/Sarabun-ExtraBold.woff2') format('woff2');
+  font-weight: 800 900;
+  font-style: normal;
+}
+
+.font-sarabun {
+  font-family: 'THsarabunit๙', 'TH Sarabun IT9', 'TH Sarabun New', 'TH Sarabun PSK', 'Sarabun', 'Prompt', sans-serif !important;
+}
+
+.cert-text-thai {
+  font-family: 'THsarabunit๙', 'TH Sarabun IT9', 'TH Sarabun New', 'TH Sarabun PSK', 'Sarabun', 'Prompt', sans-serif !important;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.08;
+  letter-spacing: normal;
+}
+
+/* โลโก้เกียรติบัตร */
+.cert-logo-img {
+  height: 66px;
+  margin-top: 50.5827px;
+  margin-bottom: 0cm;
+}
+
+/* ลายเซ็นต์ผู้ลงนาม: ขยายใหญ่ขึ้นอีก 20% (จาก 5.5rem/88px -> 6.6rem/105.6px) */
+.cert-signature-img {
+  height: 6.6rem !important;
+  max-height: 6.6rem !important;
+  max-width: 372px !important;
+  width: auto !important;
+  margin-top: -0.35rem !important;
+  margin-bottom: -1.1rem !important;
+  object-fit: contain !important;
+}
+
+/* Signatory Container: จัดวางระยะห่างด้านล่างให้สมดุลพอดีกรอบ A4 */
+.cert-signatory-container {
+  font-style: normal;
+  line-height: 39px;
+  margin-bottom: 23.2283px;
+  position: relative;
+  z-index: 20;
+}
+
+#direct-print-mount {
+  display: none;
+}
+
+/* Print Rules for A4 Landscape Certificate PDF Generation */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+  *, *::before, *::after {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+  }
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    width: 297mm !important;
+    height: 210mm !important;
+    max-width: 297mm !important;
+    max-height: 210mm !important;
+    overflow: hidden !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide all unnecessary navigation, buttons, headers, and UI elements */
+  header, footer, nav, button, input, .no-print {
+    display: none !important;
+  }
+
+  #direct-print-mount {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: fixed !important;
+    inset: 0 !important;
+    width: 297mm !important;
+    height: 210mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    z-index: 999999999 !important;
+    overflow: hidden !important;
+  }
+
+  /* Reset all ancestor containers so they don't clip or trap the print layout */
+  #root, main, .min-h-screen, .max-w-6xl, .liquid-glass, .overflow-x-auto, .overflow-y-auto, .fixed {
+    position: static !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+
+  /* Isolate only the certificate print canvas in print preview */
+  body * {
+    visibility: hidden;
+  }
+
+  #direct-print-mount,
+  #direct-print-mount *,
+  .certificate-print-area,
+  .certificate-print-area * {
+    visibility: visible !important;
+  }
+
+  /* Single-page A4 Landscape Container with Exact Non-overflowing Dimensions */
+  .certificate-print-area {
+    position: absolute !important;
+    left: 3.5mm !important;
+    top: 2.5mm !important;
+    width: 290mm !important;
+    height: 205mm !important;
+    max-width: 290mm !important;
+    max-height: 205mm !important;
+    min-width: 290mm !important;
+    min-height: 205mm !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 2mm 10mm 2mm 10mm !important;
+    box-sizing: border-box !important;
+    border: 8px solid #fcd34d !important;
+    box-shadow: none !important;
+    background-color: #ffffff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    overflow: hidden !important;
+    z-index: 99999999 !important;
+  }
+
+  .cert-logo-img {
+    height: 2.0cm !important;
+    width: auto !important;
+    max-height: 2.0cm !important;
+    object-fit: contain !important;
+    margin-top: 1.55cm !important;
+    margin-bottom: 0cm !important;
+  }
+
+  /* ขยายใหญ่ขึ้นอีก 30% (จาก 25.2pt -> 32.8pt) */
+  .cert-header-org {
+    font-size: 32.8pt !important;
+    line-height: 1.04 !important;
+    font-weight: 900 !important;
+    color: #0a192f !important;
+    -webkit-text-stroke: 0.4px #0a192f !important;
+  }
+
+  .cert-header-award {
+    font-size: 20.4pt !important;
+    line-height: 1.04 !important;
+    font-weight: 800 !important;
+    color: #1e293b !important;
+    margin-top: 1mm !important;
+    margin-bottom: 0mm !important;
+    -webkit-text-stroke: 0.25px #1e293b !important;
+  }
+
+  /* ชื่อ-สกุล ขยายใหญ่ขึ้นอีก 15% (จาก 36pt -> 41.4pt) และอยู่กึ่งกลางระหว่างบรรทัดบนกับโรงเรียน */
+  .cert-recipient-name {
+    font-size: 41.4pt !important;
+    line-height: 1.02 !important;
+    font-weight: 900 !important;
+    color: #0a2540 !important; /* น้ำเงินเข้ม */
+    -webkit-text-stroke: 0.55px #0a2540 !important;
+    margin-top: 2.5mm !important;
+    margin-bottom: 2.5mm !important;
+  }
+
+  .cert-recipient-school {
+    font-size: 22.8pt !important;
+    line-height: 1.04 !important;
+    font-weight: 800 !important;
+    color: #162f56 !important; /* น้ำเงินเข้ม */
+    margin-top: 0mm !important;
+    margin-bottom: 1mm !important;
+    -webkit-text-stroke: 0.35px #162f56 !important;
+  }
+
+  /* ขยายใหญ่ขึ้นอีก 20% (จาก 18pt -> 21.6pt) */
+  .cert-course-desc {
+    font-size: 21.6pt !important;
+    line-height: 1.05 !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin-bottom: 0.3mm !important;
+  }
+
+  /* ขยายใหญ่ขึ้นอีก 20% (จาก 21.6pt -> 25.9pt) */
+  .cert-course-title {
+    font-size: 25.9pt !important;
+    line-height: 1.05 !important;
+    font-weight: 800 !important;
+    color: #0a2540 !important; /* น้ำเงินเข้ม */
+    margin-top: 0.3mm !important;
+    margin-bottom: 0.3mm !important;
+    -webkit-text-stroke: 0.35px #0a2540 !important;
+  }
+
+  /* ขยายใหญ่ขึ้นอีก 20% (จาก 16.8pt -> 20.2pt) */
+  .cert-date-text {
+    font-size: 20.2pt !important;
+    line-height: 1.05 !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+  }
+
+  /* บล็อกผู้ลงนาม: จัดระยะห่างให้พอดีกรอบล่าง */
+  .cert-signatory-container {
+    margin-bottom: 0.35cm !important;
+    position: relative !important;
+    z-index: 20 !important;
+  }
+
+  .cert-signature-img {
+    height: 3.0cm !important;
+    max-height: 3.0cm !important;
+    max-width: 9.6cm !important;
+    width: auto !important;
+    margin-top: -0.2cm !important;
+    margin-bottom: -0.65cm !important;
+    display: block !important;
+  }
+
+  .cert-signatory-name {
+    font-size: 19.2pt !important;
+    line-height: 1.05 !important;
+    font-weight: 900 !important;
+    color: #0a192f !important;
+    -webkit-text-stroke: 0.35px #0a192f !important;
+  }
+
+  .cert-signatory-pos {
+    font-size: 15.6pt !important;
+    line-height: 1.05 !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+  }
+
+  .cert-number-badge {
+    top: 8mm !important;
+    right: 12mm !important;
+    font-size: 15.6pt !important;
+    font-weight: 800 !important;
+  }
+
+  .cert-footer-info {
+    font-size: 12pt !important;
+    line-height: 1.05 !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+    margin-top: 0.5mm !important;
+  }
+}
+

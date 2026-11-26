@@ -1,0 +1,167 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Administrator profiles for the system",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Admin user ID" },
+        "username": { "type": "string", "description": "Admin username (e.g., Admin01)" },
+        "name": { "type": "string", "description": "Full name of administrator" },
+        "position": { "type": "string", "description": "Official educational supervisor position" },
+        "email": { "type": "string", "description": "Admin contact email" },
+        "role": { "type": "string", "enum": ["admin", "superadmin"], "description": "Role level" },
+        "profilePic": { "type": "string", "description": "Avatar or profile picture URL" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp of last update" }
+      },
+      "required": ["uid", "username", "name", "role"]
+    },
+    "Course": {
+      "title": "Course",
+      "description": "Educational technology & AI training courses",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Course identifier" },
+        "title": { "type": "string", "description": "Course title" },
+        "details": { "type": "string", "description": "Comprehensive course description and syllabus" },
+        "tools": { "type": "string", "description": "Digital & AI tools used (e.g., ChatGPT, Canva AI, Claude, Midjourney)" },
+        "benefits": { "type": "string", "description": "Knowledge and skills participants will gain" },
+        "trainingDate": { "type": "string", "description": "Training date string (YYYY-MM-DD)" },
+        "duration": { "type": "string", "description": "Duration (e.g., 6 ชั่วโมง)" },
+        "location": { "type": "string", "description": "Onsite or Online location" },
+        "maxSeats": { "type": "number", "description": "Maximum number of attendees" },
+        "status": { "type": "string", "enum": ["open", "closed", "draft"], "description": "Course availability status" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" }
+      },
+      "required": ["title", "details", "tools", "benefits", "status"]
+    },
+    "Registration": {
+      "title": "Registration",
+      "description": "Teacher and staff training registration record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Registration identifier" },
+        "name": { "type": "string", "description": "Teacher/Educator full name with prefix" },
+        "school": { "type": "string", "description": "School name" },
+        "district": { "type": "string", "description": "Educational district / Amphoe in Sukhothai" },
+        "phone": { "type": "string", "description": "Contact telephone number" },
+        "lineId": { "type": "string", "description": "Line ID for communications" },
+        "trainingDate": { "type": "string", "description": "Selected training date" },
+        "courseId": { "type": "string", "description": "ID of the registered course" },
+        "courseTitle": { "type": "string", "description": "Title of the registered course" },
+        "suggestions": { "type": "string", "description": "Special requirements or suggestions" },
+        "status": { "type": "string", "enum": ["confirmed", "pending", "cancelled"], "description": "Registration status" },
+        "createdAt": { "type": "string", "description": "Registration timestamp" }
+      },
+      "required": ["name", "school", "district", "phone", "lineId", "trainingDate", "courseId"]
+    },
+    "Survey": {
+      "title": "Survey",
+      "description": "Post-training satisfaction survey evaluation",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Survey record ID" },
+        "courseId": { "type": "string", "description": "Course evaluated" },
+        "trainingDate": { "type": "string", "description": "Date of training attended" },
+        "gender": { "type": "string", "description": "Participant gender" },
+        "ageRange": { "type": "string", "description": "Age range of participant" },
+        "district": { "type": "string", "description": "District of the participant school" },
+        "position": { "type": "string", "description": "Teaching or administrative position" },
+        "q1": { "type": "number", "description": "Likert score 1-5: เนื้อหาหลักสูตรมีความทันสมัยและตอบโจทย์" },
+        "q2": { "type": "number", "description": "Likert score 1-5: วิทยากรมีความรู้ความเชี่ยวชาญ" },
+        "q3": { "type": "number", "description": "Likert score 1-5: การถ่ายทอดเนื้อหาชัดเจนเข้าใจง่าย" },
+        "q4": { "type": "number", "description": "Likert score 1-5: เอกสารและสื่อการอบรมมีคุณภาพ" },
+        "q5": { "type": "number", "description": "Likert score 1-5: การปฏิบัติการใช้งานเครื่องมือ AI ประยุกต์ใช้ได้จริง" },
+        "q6": { "type": "number", "description": "Likert score 1-5: ความเหมาะสมของระยะเวลาและกำหนดการ" },
+        "q7": { "type": "number", "description": "Likert score 1-5: การประสานงานและการอำนวยความสะดวก" },
+        "q8": { "type": "number", "description": "Likert score 1-5: ความพร้อมของระบบเครือข่ายและเทคโนโลยี" },
+        "q9": { "type": "number", "description": "Likert score 1-5: นำความรู้ไปบูรณาการจัดการเรียนรู้ได้" },
+        "q10": { "type": "number", "description": "Likert score 1-5: ความพึงพอใจในภาพรวมต่อการอบรม" },
+        "impression": { "type": "string", "description": "Open-ended: สิ่งที่ประทับใจมากที่สุดในการอบรม" },
+        "suggestion": { "type": "string", "description": "Open-ended: ข้อเสนอแนะเพื่อการพัฒนาต่อไป" },
+        "createdAt": { "type": "string", "description": "Timestamp submitted" }
+      },
+      "required": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10"]
+    },
+    "PRNews": {
+      "title": "PRNews",
+      "description": "Public relations news, photos, and announcements",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "PR news ID" },
+        "title": { "type": "string", "description": "News headline" },
+        "content": { "type": "string", "description": "Full news article text" },
+        "imageUrl": { "type": "string", "description": "Cover image URL" },
+        "driveUrl": { "type": "string", "description": "Google Drive album link for high-res photos" },
+        "publishedDate": { "type": "string", "description": "Publication date" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" }
+      },
+      "required": ["title", "content"]
+    },
+    "Certificate": {
+      "title": "Certificate",
+      "description": "Certificate issuance template and eligible attendee rosters",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Certificate batch ID" },
+        "courseId": { "type": "string", "description": "Associated course ID" },
+        "courseTitle": { "type": "string", "description": "Associated course title" },
+        "trainingDate": { "type": "string", "description": "Training date" },
+        "bgImageUrl": { "type": "string", "description": "Certificate template background image URL" },
+        "signatoryName": { "type": "string", "description": "Signatory Director / Head of Education" },
+        "signatoryPosition": { "type": "string", "description": "Signatory position" },
+        "rosterList": { "type": "string", "description": "JSON or newline list of approved attendees" },
+        "createdAt": { "type": "string", "description": "Issue timestamp" }
+      },
+      "required": ["courseTitle", "trainingDate"]
+    },
+    "EmailNotification": {
+      "title": "EmailNotification",
+      "description": "Real-time email notification log triggered when a new registration occurs",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Notification ID" },
+        "subject": { "type": "string", "description": "Email subject line" },
+        "body": { "type": "string", "description": "Formatted email body" },
+        "recipients": { "type": "string", "description": "Comma-separated list of recipient email addresses" },
+        "name": { "type": "string", "description": "Registrant full name" },
+        "school": { "type": "string", "description": "Registrant school" },
+        "trainingDate": { "type": "string", "description": "Requested training date" },
+        "courseTitle": { "type": "string", "description": "Registered course title" },
+        "status": { "type": "string", "enum": ["sent", "delivered", "queued"], "description": "Delivery status" },
+        "createdAt": { "type": "string", "description": "ISO timestamp when notification was triggered" }
+      },
+      "required": ["subject", "body", "recipients", "name", "school", "trainingDate", "courseTitle"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Administrator collection for system management"
+    },
+    "/courses/{courseId}": {
+      "schema": "Course",
+      "description": "Published training courses available for registration"
+    },
+    "/registrations/{registrationId}": {
+      "schema": "Registration",
+      "description": "Participant workshop registrations"
+    },
+    "/surveys/{surveyId}": {
+      "schema": "Survey",
+      "description": "Evaluations and satisfaction feedback submitted by participants"
+    },
+    "/pr_news/{newsId}": {
+      "schema": "PRNews",
+      "description": "PR press releases and event news"
+    },
+    "/certificates/{certificateId}": {
+      "schema": "Certificate",
+      "description": "Certificates and verified attendee rosters"
+    },
+    "/email_notifications/{notificationId}": {
+      "schema": "EmailNotification",
+      "description": "Real-time email notification dispatch records for new registrations"
+    }
+  }
+}

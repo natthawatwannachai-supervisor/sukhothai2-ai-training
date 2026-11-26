@@ -1,0 +1,50 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // 1. Users / Admin profiles
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    // 2. Courses - public read, admin add/edit/delete
+    match /courses/{courseId} {
+      allow read, write: if true;
+    }
+
+    // 3. Registrations - public read, submit, admin manage
+    match /registrations/{registrationId} {
+      allow read, write: if true;
+    }
+
+    // 4. Surveys - submit, admin review and analyze
+    match /surveys/{surveyId} {
+      allow read, write: if true;
+    }
+
+    // 5. PR News - public read, admin manage
+    match /pr_news/{newsId} {
+      allow read, write: if true;
+    }
+
+    // 6. Certificates - public read and admin manage
+    match /certificates/{certificateId} {
+      allow read, write: if true;
+    }
+
+    // 7. System Settings - certificate template, director info, and global settings
+    match /settings/{settingId} {
+      allow read, write: if true;
+    }
+
+    // 8. Real-time Email Notifications log
+    match /email_notifications/{notificationId} {
+      allow read, write: if true;
+    }
+  }
+}
